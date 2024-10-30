@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://cak6jpltfr2f3"]
+
+[ext_resource type="Texture2D" uid="uid://dq8q2vu6fdeh6" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/SamuraiRed/redsamurai.png" id="1_iah85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q6do"]
+atlas = ExtResource("1_iah85")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l3rp"]
+atlas = ExtResource("1_iah85")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucwvn"]
+atlas = ExtResource("1_iah85")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1o23"]
+atlas = ExtResource("1_iah85")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gftly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q6do")
+}],
+"loop": true,
+"name": &"back_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l3rp")
+}],
+"loop": true,
+"name": &"front_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucwvn")
+}],
+"loop": true,
+"name": &"left_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1o23")
+}],
+"loop": true,
+"name": &"right_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxitk"]
+radius = 7.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gftly")
+animation = &"right_idle"
+autoplay = "front_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_rxitk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
